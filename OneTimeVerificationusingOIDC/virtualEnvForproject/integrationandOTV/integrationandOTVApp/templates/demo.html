@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Token</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #a0e474cc;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 20px auto; /* Added margin from top */
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                text-align: center;
+                color: #333333;
+            }
+            h3 {
+                text-align: center;
+                color: #333333;
+            }
+
+            p {
+                margin: 5px 0;
+            }
+
+            button {
+                background-color: #007bff;
+                color: #ffffff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            /* Style for the centered logout button */
+            .center {
+                text-align: center;
+            }
+
+            /* Style for the logo image */
+            .logo {
+                display: block;
+                text-align: center;
+                margin: 20px auto 15px; /* Add 20px top margin and center horizontally */
+            }
+
+            .logo img {
+                max-width: 150px; /* Adjust the width of the logo */
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- Logo image at top center -->
+        <!--<div class="logo">
+            <img src="{% static 'img/C-DAC.jpg' %}" alt="Logo">
+        </div>-->
+
+        <div class="container">
+            <h1>Welcome To CDAC</h1>
+            <p>Name: {{ fname }}</p>
+            <p>Username: {{ username }}</p>
+            <p>Mobile Number: {{ mobile_number }}</p>
+            <p>Service User ID: {{ serviceUserId }}</p>
+            
+        </div>
+
+        <div class="center">
+            <form method="POST" action="/logout">
+                {% csrf_token %}
+                <button type="submit"><b>LOGOUT</b></button>
+            </form>
+        </div>       
+    </body>
+</html>
